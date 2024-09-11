@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Drawer, List, ListItem, ListItemText, IconButton, Box, useMediaQuery } from '@mui/material';
 import { styled, Theme } from '@mui/material/styles';
-import { MdMenu, MdClose, MdHome, MdLock, MdEngineering, MdExitToApp } from "react-icons/md";
+import { MdMenu, MdClose, MdHome, MdLock, MdExitToApp } from "react-icons/md";
 import theme from '../../theme';
 import useAuth from '../../contexts/auth/useAuth';
 
