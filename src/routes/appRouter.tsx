@@ -6,6 +6,7 @@ import Permissions from '../pages/Permissions';
 import Sidebar from '../components/Sidebar';
 import useAuth from '../contexts/auth/useAuth';
 import './layout.css';
+import Configurations from '../pages/Configurations';
 
 const AppRouter: React.FC = () => {
   const { user } = useAuth();
@@ -37,6 +38,16 @@ const AppRouter: React.FC = () => {
         </div>
         <div className="content">
           <Permissions />
+        </div>
+      </div>
+    )},
+    { path: 'configurations', element: (
+      <div className="container">
+        <div className="sidebar">
+          <Sidebar />
+        </div>
+        <div className="content">
+          <Configurations />
         </div>
       </div>
     )},
