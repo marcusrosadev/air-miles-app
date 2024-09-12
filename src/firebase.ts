@@ -1,5 +1,11 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth, browserLocalPersistence, setPersistence } from 'firebase/auth';
+import firebase from "firebase/compat/app";
+
+import { initializeApp } from "firebase/app";
+import {
+  getAuth,
+  browserLocalPersistence,
+  setPersistence,
+} from "firebase/auth";
 
 // const firebaseConfig = {
 //   apiKey: "YOUR_API_KEY",
@@ -16,9 +22,8 @@ const firebaseConfig = {
   projectId: "milhas-dashboard",
   storageBucket: "milhas-dashboard.appspot.com",
   messagingSenderId: "408165476556",
-  appId: "1:408165476556:web:95c2afa5330b949762fa69"
+  appId: "1:408165476556:web:95c2afa5330b949762fa69",
 };
-
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -26,3 +31,5 @@ const auth = getAuth(app);
 setPersistence(auth, browserLocalPersistence);
 
 export { auth };
+
+export default firebase;
