@@ -93,18 +93,24 @@ const Permissions = () => {
       <S.PermissionsPage>
         <S.PermissionsPageHeader>
           <h1>Permissões</h1>
-          <p>Esta é a tela de permissões.</p>
+          <p>Crie e gerencie suas permissões</p>
         </S.PermissionsPageHeader>
         <S.PermissionsPageContent>
           <S.PermissionsListOptions>
             <S.PermissionsListNavigation>
               <Button
                 variant={
-                  activeView !== "permissions" ? "contained" : "outlined"
+                  activeView === "permissions" ? "contained" : "outlined"
                 }
                 onClick={() => setActiveView("permissions")}
               >
                 Permissões
+              </Button>
+              <Button disabled variant="outlined">
+                Usuários
+              </Button>
+              <Button disabled variant="outlined">
+                Acessos
               </Button>
             </S.PermissionsListNavigation>
             <S.PermissionsListNavigationOptions>
