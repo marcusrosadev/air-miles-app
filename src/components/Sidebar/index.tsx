@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Drawer, List, ListItem, ListItemText, IconButton, Box, useMediaQuery } from '@mui/material';
 import { styled, Theme } from '@mui/material/styles';
-import { MdMenu, MdClose, MdHome, MdLock } from "react-icons/md";
+import { MdMenu, MdClose, MdHome, MdLock, MdExitToApp } from "react-icons/md";
 import theme from '../../theme';
+import useAuth from '../../contexts/auth/useAuth';
 
 const drawerWidth = 240;
 
@@ -16,9 +17,9 @@ const DrawerHeader = styled('div')(({ theme }: { theme: Theme }) => ({
 }));
 
 const listItemStyles = {
-  color: '#196bbd',
+  color: '#FFF',
   textDecoration: 'none',
-  '&:visited': { color: '#196bbd' },
+  '&:visited': { color: '#FFF' },
   fontWeight: 'bold',
   display: 'flex',
   alignItems: 'center',
@@ -29,6 +30,13 @@ const Sidebar: React.FC = () => {
   const [open, setOpen] = useState(false);
 
   const isMobile = useMediaQuery(theme.breakpoints.down(720));
+
+  const { logout } = useAuth();
+
+  const handleLogout = () => {
+    handleDrawerClose();
+    logout();
+  };
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -61,7 +69,7 @@ const Sidebar: React.FC = () => {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
-            background: '#CCC'
+            background: '#42a5f5'
           },
         }}
         variant="persistent"
@@ -70,7 +78,7 @@ const Sidebar: React.FC = () => {
       >
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            <MdClose />
+            <MdClose color='white'/>
           </IconButton>
         </DrawerHeader>
         <List>
@@ -81,6 +89,14 @@ const Sidebar: React.FC = () => {
           <ListItem component={Link} to="/permissions" sx={listItemStyles} onClick={handleDrawerClose}>
             <MdLock />
             <ListItemText primary="Permissões" />
+          </ListItem>
+          {/* <ListItem component={Link} to="/configurations" sx={listItemStyles} onClick={handleDrawerClose}>
+            <MdEngineering />
+            <ListItemText primary="Configurações" />
+          </ListItem> */}
+          <ListItem component={Link} to="/" sx={listItemStyles} onClick={handleLogout}>
+            <MdExitToApp />
+            <ListItemText primary="Sair" />
           </ListItem>
         </List>
       </Drawer>
