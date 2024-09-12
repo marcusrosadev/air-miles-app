@@ -6,7 +6,7 @@ import { IoMdExit } from "react-icons/io";
 import { Button } from "@mui/material";
 
 import { useAuth } from "@/contexts/AuthProvider";
-import { IMenuData, menusData, ViewsType } from "@/data/menusData";
+import { IMenuData, menusData } from "@/data/menusData";
 
 const Dashboard = () => {
   const { logout } = useAuth();
