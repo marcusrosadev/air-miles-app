@@ -5,13 +5,12 @@ export const PermissionsPage = styled.div`
   flex-direction: column;
   row-gap: 30px;
   width: 100%;
+  max-width: 1200px;
   height: 100%;
-  padding: 20px;
-`;
+  padding: 25px;
+  border-radius: 10px;
 
-export const PermissionsPageHeader = styled.div`
-  display: flex;
-  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.15);
 `;
 
 export const PermissionsPageContent = styled.div`

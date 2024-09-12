@@ -1,29 +1,37 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Drawer, List, ListItem, ListItemText, IconButton, Box, useMediaQuery } from '@mui/material';
-import { styled, Theme } from '@mui/material/styles';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  IconButton,
+  Box,
+  useMediaQuery,
+} from "@mui/material";
+import { styled, Theme } from "@mui/material/styles";
 import { MdMenu, MdClose, MdHome, MdLock, MdExitToApp } from "react-icons/md";
-import theme from '../../theme';
-import useAuth from '../../contexts/auth/useAuth';
+import theme from "../../theme";
+import { useAuth } from "@/contexts/AuthProvider";
 
 const drawerWidth = 240;
 
-const DrawerHeader = styled('div')(({ theme }: { theme: Theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
+const DrawerHeader = styled("div")(({ theme }: { theme: Theme }) => ({
+  display: "flex",
+  alignItems: "center",
   padding: theme.spacing(0, 1),
   ...theme.mixins.toolbar,
-  justifyContent: 'flex-end',
+  justifyContent: "flex-end",
 }));
 
 const listItemStyles = {
-  color: '#FFF',
-  textDecoration: 'none',
-  '&:visited': { color: '#FFF' },
-  fontWeight: 'bold',
-  display: 'flex',
-  alignItems: 'center',
-  gap: 2
+  color: "#FFF",
+  textDecoration: "none",
+  "&:visited": { color: "#FFF" },
+  fontWeight: "bold",
+  display: "flex",
+  alignItems: "center",
+  gap: 2,
 };
 
 const Sidebar: React.FC = () => {
@@ -47,18 +55,18 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: "flex" }}>
       <IconButton
         color="inherit"
         aria-label="open drawer"
         edge="start"
         onClick={handleDrawerOpen}
-        sx={{ mr: 2, ...(open && { display: 'none' }) }}
+        sx={{ mr: 2, ...(open && { display: "none" }) }}
         style={{
-          padding: isMobile ? '5px' : '10px',
-          margin: isMobile ? '2px' : '10px',
+          padding: isMobile ? "5px" : "10px",
+          margin: isMobile ? "2px" : "10px",
         }}
-        size='large'
+        size="large"
       >
         <MdMenu />
       </IconButton>
@@ -66,10 +74,10 @@ const Sidebar: React.FC = () => {
         sx={{
           width: drawerWidth,
           flexShrink: 0,
-          '& .MuiDrawer-paper': {
+          "& .MuiDrawer-paper": {
             width: drawerWidth,
-            boxSizing: 'border-box',
-            background: '#42a5f5'
+            boxSizing: "border-box",
+            background: "#42a5f5",
           },
         }}
         variant="persistent"
@@ -78,15 +86,25 @@ const Sidebar: React.FC = () => {
       >
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            <MdClose color='white'/>
+            <MdClose color="white" />
           </IconButton>
         </DrawerHeader>
         <List>
-          <ListItem component={Link} to="/home" sx={listItemStyles} onClick={handleDrawerClose}>
+          <ListItem
+            component={Link}
+            to="/home"
+            sx={listItemStyles}
+            onClick={handleDrawerClose}
+          >
             <MdHome />
             <ListItemText primary="Início" />
           </ListItem>
-          <ListItem component={Link} to="/permissions" sx={listItemStyles} onClick={handleDrawerClose}>
+          <ListItem
+            component={Link}
+            to="/permissions"
+            sx={listItemStyles}
+            onClick={handleDrawerClose}
+          >
             <MdLock />
             <ListItemText primary="Permissões" />
           </ListItem>
@@ -94,7 +112,12 @@ const Sidebar: React.FC = () => {
             <MdEngineering />
             <ListItemText primary="Configurações" />
           </ListItem> */}
-          <ListItem component={Link} to="/" sx={listItemStyles} onClick={handleLogout}>
+          <ListItem
+            component={Link}
+            to="/"
+            sx={listItemStyles}
+            onClick={handleLogout}
+          >
             <MdExitToApp />
             <ListItemText primary="Sair" />
           </ListItem>

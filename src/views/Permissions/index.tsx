@@ -24,6 +24,7 @@ import {
   IPermissionForm,
   IPermissionFormEdition,
 } from "../../firebase/permissions";
+import { ViewHeader } from "@/components";
 
 const Permissions = () => {
   const [permissionToEdit, setPermissionToEdit] = useState<IPermission | null>(
@@ -91,10 +92,8 @@ const Permissions = () => {
   return (
     <>
       <S.PermissionsPage>
-        <S.PermissionsPageHeader>
-          <h1>Permissões</h1>
-          <p>Crie e gerencie suas permissões</p>
-        </S.PermissionsPageHeader>
+        <ViewHeader label="Permissões" legend="Crie e gerencie as permissões" />
+
         <S.PermissionsPageContent>
           <S.PermissionsListOptions>
             <S.PermissionsListNavigation>
@@ -105,12 +104,6 @@ const Permissions = () => {
                 onClick={() => setActiveView("permissions")}
               >
                 Permissões
-              </Button>
-              <Button disabled variant="outlined">
-                Usuários
-              </Button>
-              <Button disabled variant="outlined">
-                Acessos
               </Button>
             </S.PermissionsListNavigation>
             <S.PermissionsListNavigationOptions>
@@ -255,7 +248,6 @@ const Permissions = () => {
 
           <FormControlLabel
             style={{ marginTop: 12 }}
-            required
             id="isActive"
             name="isActive"
             control={<Switch />}

@@ -1,7 +1,20 @@
-import { Card, Grid, CardContent, Typography, Box, Collapse, IconButton, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
-import { useState } from 'react';
-import MonthlyUsers from '../../components/Graphics/MonthlyUsers';
-import OffersClicked from '../../components/Graphics/OffersClicked';
+import {
+  Card,
+  Grid,
+  CardContent,
+  Typography,
+  Box,
+  Collapse,
+  IconButton,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from "@mui/material";
+import { useState } from "react";
+import MonthlyUsers from "../../components/Graphics/MonthlyUsers";
+import OffersClicked from "../../components/Graphics/OffersClicked";
 import { MdReadMore } from "react-icons/md";
 
 const Home = () => {
@@ -9,12 +22,17 @@ const Home = () => {
   const [openOffersClicked, setOpenOffersClicked] = useState(false);
 
   return (
-    <Box sx={{ padding: '20px 80px 20px 20px'}}>
+    <Box sx={{ padding: "20px 80px 20px 20px" }}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Card sx={{ border: '1px solid #90caf9', boxShadow: '0 3px 6px rgba(0,0,0,0.1)'}}>
+          <Card
+            sx={{
+              border: "1px solid #90caf9",
+              boxShadow: "0 3px 6px rgba(0,0,0,0.1)",
+            }}
+          >
             <CardContent>
-              <Typography variant="h6" gutterBottom sx={{ color: '#1e88e5' }}>
+              <Typography variant="h6" gutterBottom sx={{ color: "#1e88e5" }}>
                 Usuários por mês
               </Typography>
               <MonthlyUsers />
@@ -23,14 +41,18 @@ const Home = () => {
                 aria-expanded={openMonthlyUsers}
                 aria-label="show more"
                 sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                   gap: 1,
                 }}
               >
-                <MdReadMore size={30}/>
-                <Typography variant="subtitle1" gutterBottom sx={{ color: '#000', marginBottom: 0 }}>
+                <MdReadMore size={30} />
+                <Typography
+                  variant="subtitle1"
+                  gutterBottom
+                  sx={{ color: "#000", marginBottom: 0 }}
+                >
                   Ver Mais
                 </Typography>
               </IconButton>
@@ -59,9 +81,14 @@ const Home = () => {
           </Card>
         </Grid>
         <Grid item xs={12}>
-          <Card sx={{ border: '1px solid green', boxShadow: '0 3px 6px rgba(0,0,0,0.1)'}}>
+          <Card
+            sx={{
+              border: "1px solid green",
+              boxShadow: "0 3px 6px rgba(0,0,0,0.1)",
+            }}
+          >
             <CardContent>
-              <Typography variant="h6" gutterBottom sx={{ color: 'green' }}>
+              <Typography variant="h6" gutterBottom sx={{ color: "green" }}>
                 Cliques por pacote/oferta
               </Typography>
               <OffersClicked />
@@ -70,14 +97,18 @@ const Home = () => {
                 aria-expanded={openOffersClicked}
                 aria-label="show more"
                 sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                   gap: 1,
                 }}
               >
-                <MdReadMore size={30}/>
-                <Typography variant="subtitle1" gutterBottom sx={{ color: '#000', marginBottom: 0 }}>
+                <MdReadMore size={30} />
+                <Typography
+                  variant="subtitle1"
+                  gutterBottom
+                  sx={{ color: "#000", marginBottom: 0 }}
+                >
                   Ver Mais
                 </Typography>
               </IconButton>
